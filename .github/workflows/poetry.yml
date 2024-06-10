@@ -35,6 +35,6 @@ jobs:
       - name: poetry build
         run: |
           poetry build
-          tar -zvtf dist/templatise-*.tar.gz | grep templatise
+          tar -zvtf dist/pypack-*.tar.gz | grep pypack
       - name: poetry check
         run: poetry check

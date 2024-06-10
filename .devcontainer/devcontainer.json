@@ -1,5 +1,5 @@
 {
-	"name": "template.py",
+	"name": "pypack",
 	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
@@ -21,7 +21,7 @@
 				"python.pythonPath": "${workspaceFolder}/.venv/bin/python",
 				"python.testing.pytestArgs": [
 					"--no-cov",
-					"templatise_test"
+					"pypack_test"
 				],
 				"python.testing.unittestEnabled": false,
 				"python.testing.pytestEnabled": true

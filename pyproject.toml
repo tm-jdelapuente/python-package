@@ -9,31 +9,16 @@ ignore_unused = ["coveralls", "pytest-cov", "pytest-xdist", "vale"]
 profile = "black"
 
 [tool.poetry]
-authors = ["Alex Brandt <alunduil@gmail.com>"]
-classifiers = [
-  "Development Status :: 5 - Production/Stable",
-  "Environment :: Console",
-  "Intended Audience :: Developers",
-  "License :: OSI Approved :: The Unlicense (Unlicense)",
-  "Operating System :: OS Independent",
-  "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.7",
-  "Programming Language :: Python :: 3.8",
-  "Programming Language :: Python :: 3.9",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
-  "Topic :: Software Development",
-  "Topic :: System :: Installation/Setup",
-  "Typing :: Typed"
-]
-description = "You can use template.py to create a new GitHub repository."
+authors = ["Jose Agustin de la Puente Aljovin <jdelapuente@thoughtmachine.net>"]
+classifiers = ["Development Status :: 3 - Alpha", "License :: OSI Approved :: The Unlicense (Unlicense)", "Programming Language :: Python :: 3 :: Only", "Programming Language :: Python :: 3.10", "Programming Language :: Python :: 3.11", "Programming Language :: Python :: 3.7", "Programming Language :: Python :: 3.8", "Programming Language :: Python :: 3.9", "Typing :: Typed"]
+description = ""
 include = ["templatise/licenses.json"]
-keywords = ["python", "template", "vscode", "devcontainers"]
+keywords = []
 license = "unlicense"
-name = "templatise"
+name = "pypack"
 readme = "README.md"
-repository = "https://github.com/alunduil/template.py"
-version = "2.2.5"
+repository = "https://github.com/alunduil/pypack"
+version = "0.1.0"
 
 [tool.poetry.dependencies]
 click = "^8.1.3"
@@ -50,16 +35,16 @@ hypothesis = "^6.70.0"
 pytest = ">=7.2.0,<9.0.0"
 pytest-cov = ">=4,<6"
 pytest-golden = "^0.2.2"
-pytest-xdist = {extras = ["psutil"], version = "^3.2.1"}
 vale = "^3.0.7.0"
 
-[tool.poetry.scripts]
-initialise = 'templatise.initialise:main'
+[tool.poetry.group.test.dependencies.pytest-xdist]
+extras = ["psutil"]
+version = "^3.2.1"
 
 [tool.pytest.ini_options]
-addopts = "--doctest-modules --cov=templatise --cov-report=term-missing -n logical"
+addopts = "--doctest-modules --cov=pypack --cov-report=term-missing -n logical"
 enable_assertion_pass_hook = true
-testpaths = ["templatise_test"]
+testpaths = ["pypack_test"]
 
 [tool.vulture]
-paths = ["templatise", "templatise_test"]
+paths = ["pypack", "pypack_test"]
