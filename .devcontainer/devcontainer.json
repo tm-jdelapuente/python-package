@@ -9,6 +9,14 @@
 		"ghcr.io/devcontainers/features/github-cli:1": {},
 		"ghcr.io/devcontainers/features/python:1": {}
 	},
+	"mounts": [
+		{
+		  "source": "~/.ssh",  // Path to your local SSH key directory
+		  "target": "/home/devuser/.ssh",  // Mount point within the container
+		  "type": "bind",
+		  "consistency": "cached"
+		}
+	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 	// Use 'postCreateCommand' to run commands after the container is created.
