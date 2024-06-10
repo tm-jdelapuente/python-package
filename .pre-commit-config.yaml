@@ -1,0 +1,107 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: destroyed-symlinks
+      - id: check-ast
+      - id: check-builtin-literals
+      - id: check-docstring-first
+      - id: debug-statements
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+      - id: check-merge-conflict
+      - id: check-vcs-permalinks
+        exclude: licenses\.json
+      - id: check-toml
+  - repo: https://github.com/psf/black
+    rev: 23.3.0
+    hooks:
+      - id: black
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.13.0
+    hooks:
+      - id: isort
+  - repo: https://github.com/PyCQA/flake8
+    rev: 6.1.0
+    hooks:
+      - id: flake8
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.7.6
+    hooks:
+      - id: bandit
+  - repo: https://github.com/PyCQA/pylint
+    rev: v3.0.1
+    hooks:
+      - id: pylint
+        additional_dependencies:
+          - beautifulsoup4
+          - click
+          - click-log
+          - hypothesis
+          - pytest
+          - pytest-golden
+          - requests
+          - retry
+          - toml
+          - toml_sort
+  - repo: https://github.com/PyCQA/pydocstyle
+    rev: 6.3.0
+    hooks:
+      - id: pydocstyle
+        additional_dependencies:
+          - toml
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.7.1
+    hooks:
+      - id: mypy
+        additional_dependencies:
+          - types-requests
+          - types-retry
+          - types-toml
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.10.0
+    hooks:
+      - id: python-check-blanket-noqa
+      - id: python-check-blanket-type-ignore
+      - id: python-check-mock-methods
+      - id: python-no-eval
+      - id: python-no-log-warn
+      # - id: python-use-type-annotations
+  - repo: https://github.com/asottile/yesqa
+    rev: v1.5.0
+    hooks:
+      - id: yesqa
+  - repo: https://github.com/jendrikseipp/vulture
+    rev: v2.10
+    hooks:
+      - id: vulture
+  - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+    rev: v2.11.0
+    hooks:
+      - id: pretty-format-toml
+        args: [--autofix]
+        exclude: poetry\.lock
+  - repo: https://github.com/tweag/FawltyDeps
+    rev: v0.13.1
+    hooks:
+      - id: check
+        args:
+          - --detailed
+  - repo: https://github.com/errata-ai/vale
+    rev: v3.3.1
+    hooks:
+      - id: vale
+        exclude: '^(styles/|LICENSE$)'
+        exclude_types:
+          - gitignore
+          - ini
+          - json
+          - python
+          - toml
+          - yaml
